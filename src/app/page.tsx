@@ -171,7 +171,6 @@ const TREES = [
 export default function HomePage() {
   const [dinoMode, setDinoMode] = useState<"wander" | "follow">("wander");
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [houseHovered, setHouseHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const section2Ref = useRef<HTMLDivElement>(null);
 
@@ -292,42 +291,35 @@ export default function HomePage() {
           {/* About button — bottom right */}
           <button
             onClick={() => setAboutOpen((o) => !o)}
-            onMouseEnter={() => setHouseHovered(true)}
-            onMouseLeave={() => setHouseHovered(false)}
+            className={`about-btn${aboutOpen ? " about-btn--active" : ""}`}
             style={{
               position: "absolute",
               bottom: 40,
               right: 60,
-              background: "none",
-              border: "none",
+              background: aboutOpen ? "#0015FF" : "none",
+              border: "1px solid #0015FF",
+              borderRadius: "50%",
               cursor: "pointer",
-              padding: 0,
+              width: 56,
+              height: 56,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               zIndex: 2,
-              lineHeight: 0,
+              transition: "background 0.15s",
             }}
           >
-            <svg
-              width="48"
-              height="24"
-              viewBox="0 0 157 72"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ display: "block", transition: "opacity 0.15s" }}
+            <span
+              style={{
+                fontFamily: PT_SANS,
+                fontSize: 13,
+                color: aboutOpen ? "#fff" : "#0015FF",
+                letterSpacing: "0.03em",
+                transition: "color 0.15s",
+              }}
             >
-              <path
-                d="M98 72C98 59 93 47 84 37C74 28 62 23 49 23C36 23 24 28 14 37C5 47 0 59 0 72L98 72Z"
-                fill={houseHovered ? "#ed4253" : "#0015FF"}
-              />
-              <path
-                d="M157 72C157 61 153 51 145 44C138 36 128 32 117 32C107 32 97 36 89 44C82 51 78 61 78 72L157 72Z"
-                fill={houseHovered ? "#ed4253" : "#0015FF"}
-              />
-              <path
-                d="M125 40C125 29 121 20 114 12C106 4 96 0 86 0C75 0 65 4 58 12C50 20 46 29 46 40L125 40Z"
-                fill={houseHovered ? "#ed4253" : "#0015FF"}
-              />
-              <rect x="69" y="52" width="24" height="40" fill="#EBEBEB" />
-            </svg>
+              abt.
+            </span>
           </button>
         </section>
 

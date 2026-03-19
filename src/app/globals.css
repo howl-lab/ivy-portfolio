@@ -47,6 +47,11 @@ body {
   50%       { transform: translateY(6px); }
 }
 
+/* ── About button hover ── */
+.about-btn:hover:not(.about-btn--active) {
+  background: rgba(0, 21, 255, 0.07) !important;
+}
+
 /* ── ProjectTabs hover states ── */
 .proj-tab:hover:not(.proj-tab--active) {
   background: rgba(0, 21, 255, 0.07) !important;
