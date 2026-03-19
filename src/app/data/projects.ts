@@ -9,14 +9,14 @@
 //       expandedText   — paragraph shown when card is expanded (\n for line breaks)
 //       expandedImages — (optional) up to two media items: { src, caption }
 
-export interface ExpandedImage {
+interface ExpandedImage {
   src: string;
   caption: string;
 }
 
 // Summary supports mixed plain text and inline links:
 // summary: ["Some text ", { text: "link label", url: "https://..." }, " more text"]
-export type SummarySegment = string | { text: string; url: string };
+type SummarySegment = string | { text: string; url: string };
 
 export interface Contribution {
   title: string;
@@ -29,14 +29,14 @@ export interface Contribution {
     | [ExpandedImage, ExpandedImage, ExpandedImage];
 }
 
-export interface Sidebar {
+interface Sidebar {
   problem: string;
   why: string;
   proposal: string;
   outcome: string;
 }
 
-export interface Project {
+interface Project {
   id: string;
   label: string;
   summary: SummarySegment[];
@@ -49,16 +49,16 @@ export const PROJECTS: Project[] = [
     id: "presence-ai",
     label: "Presence AI",
     summary: [
-      "Led everything design for the consumer-facing realtime avatar.\n \n Company goal: 500K-1M MAU + 20% of user in session for 5min and 10% for 10min",
+      "Led everything design for a consumer-facing realtime avatar application.\n \n Company goal: 500K-1M MAU + 20% 5min session time and 10% for 10min",
     ],
     sidebar: {
       problem:
-        "How do we elevate human and AI conversation? What other formats or cadence of conversation can we have with AI?",
+        "How do we elevate human and AI conversation? (eg. format or cadence)",
       why: "The conversational space is mostly saturated by text-based interactions",
       proposal:
         "Multimodal consumer-facing live digital avatar application (generative video + audio)",
       outcome:
-        "product validation resulting in a coded prototype with 4K DAU before sunsetting. Ultimately, the experiment showed: casino behavior, high cost per avatar, and technical requirements",
+        "Product validation resulted in a coded beta with 4K DAU before sunsetting. Ultimately, the experiment showed: casino behavior, high cost per avatar and technical requirements",
     },
     contributions: [
       {
@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
         description: "Proof of concept application with 4K DAU reached",
         hoverImage: "/images/presence/landing-site.jpg",
         expandedText:
-          "1. Roulette interaction: 67% user start call (+13% from single) but only 0.3% next day retention rate.\n 2. Creation: only 18.97% desktop user complete flow vs. 8% mobile BUT first time seeing organic retention (eg. 200 return users in one day) ",
+          "1. Roulette interaction: 67% user start call (+13% from beginning) but only 0.3% next day retention rate.\n 2. Creation: only 18.97% desktop user complete flow vs. 8% mobile BUT first time seeing organic retention (eg. 200 return users in one day) ",
         expandedImages: [
           {
             src: "/images/presence/landing-site1.jpg",
@@ -81,14 +81,14 @@ export const PROJECTS: Project[] = [
       {
         title: "Building for speed",
         description:
-          "Defined design system for team to push to production every 2 weeks to get real user feedbacks",
+          "Built a design system for team to push to production every 2 weeks to get real user feedbacks",
         hoverImage: "/images/presence/design-system.mp4",
         expandedText:
-          "Want to find product use cases and create a MVP to gauge market opportunity",
+          "The team needed to quickly learn product use cases and gauge market opportunity through data",
         expandedImages: [
           {
             src: "/images/presence/design-system1.jpg",
-            caption: "flexible design system",
+            caption: "Flexible design system for iterations",
           },
           {
             src: "/images/presence/design-system2.jpg",
@@ -103,7 +103,7 @@ export const PROJECTS: Project[] = [
           "I guided prompting for avatar and asset generation by creating a taxonomy of art style and genre to bring a common product language and team alignment",
         hoverImage: "/images/presence/prompting.mp4",
         expandedText:
-          "This resulted in: \n Backend tagging system for metadata, front-end filtering feature for user, internal platform for the team to auto-generate avatars (tied together video, voice and image generations from different APIs",
+          "This resulted and helped the team in: \n • Creating a backend tagging system for metadata \n • Front-end filtering feature for user \n • Internal platform for the team to auto-generate avatars (tied together video, voice and image generations from different APIs)",
         expandedImages: [
           { src: "/images/presence/prompting1.jpg", caption: "Taxonomy guide" },
           {
@@ -116,20 +116,20 @@ export const PROJECTS: Project[] = [
       {
         title: "Conversation interface",
         description:
-          "Designed a conversation interface flow that reached 14% 5min mobile session vs. 23% desktop",
+          "Designed an interface that reached 14% 5min mobile session and 23% desktop",
         hoverImage: "/images/presence/convo-ui.mp4",
         expandedText:
-          "Working with various techcial limitations and designing a interface focused on user creation \n Based on 350 sample users, 82% reach 10m on desktop vs. 42% on mobile \n To reduce cost, the product shifted from video to text and voice with generation features in text mode (5s video: $0.75 per and 10s video $1.5 at 6 video per person average vs. $0.08 per image) ",
+          "Worked with various techcial limitations and designed a product focused on user creation \n • Based on 350 sample users: 82% reach 10m on desktop vs. 42% on mobile \n • To reduce cost, the product shifted from video-first to text and voice-first with video generation features in text mode (eg. $0.75 per 5s video vs. $0.08 per image) ",
         expandedImages: [
           {
             src: "/images/presence/convo-ui1.mp4",
             caption:
-              "Tech limitation: Avatar's audio status is hard to assess \n → Design solution: Voice indicator to give visue cues and for team to debug more easily",
+              "Tech limitation: Avatar's audio status is hard to assess \n → Design solution: Voice indicator to give visual cues and for team to debug more easily",
           },
           {
             src: "/images/presence/convo-ui2.mp4",
             caption:
-              "Tech limitation: Lipsync is not perfect and video mode cost a lot  \n → Design solution: Emphasize text and audio mode",
+              "Tech limitation: Lipsync is not perfect and video mode cost a lot  \n → Design solution: Emphasize text and audio",
           },
         ],
       },
@@ -156,9 +156,9 @@ export const PROJECTS: Project[] = [
     },
     contributions: [
       {
-        title: "SDK developer tool",
+        title: "Developer tool",
         description:
-          "Designed a SDK tool to showcase Headroom's AI capabilities and streamline to teams though an API",
+          "Designed a tool to showcase Headroom's AI capabilities and streamline to teams though an API and SDK model",
         hoverImage: "/images/headroom/sdk-tool.jpg",
         expandedText:
           "Even though the product is a developer tool, I designed the interface to be friendly for both technical and non-technical audiences",
@@ -178,30 +178,30 @@ export const PROJECTS: Project[] = [
       {
         title: "Lucidspark extension",
         description:
-          "Led design on a B2B opportunity to integrate Headroom's AI collaborative capabilities for virtual meetings into Lucid's whiteboard application",
+          "Led design on a B2B collaboration to integrate Headroom's AI capabilities into Lucid's virtual whiteboard application, amplifying Headroom's product reach to over 30 million potential users",
         hoverImage: "/images/headroom/lucid-spark.jpg",
         expandedText:
-          "Designed within limited vertical panel window, and within Lucid's architecture and backend",
+          "Designed within the extension's limited vertical side panel and Lucid's architectural backend",
         expandedImages: [
           {
             src: "/images/headroom/lucid1.jpg",
             caption:
-              "Distilled core values of Headroom into features for the extension through new components and UI",
+              "Distilled core values of Headroom into features for the extension through new components and UI ",
           },
           {
             src: "/images/headroom/lucid2.mp4",
             caption:
-              "Based on Lucid's backend architecture, we came up with a feature to copy a summary card of the meeting right into the board",
+              "An example feature based on Lucid's backend architecture was the ability to copy a summary card of the meeting right into the board",
           },
         ],
       },
       {
         title: "The Headroom brand",
         description:
-          "Established the brand through design system, marketing materials, and product interface",
+          "Established the brand presence through design system, marketing materials, and product interface",
         hoverImage: "/images/headroom/headroom.jpg",
         expandedText:
-          "Responsible for integrated brand identity into Webflow for seamless marketing alignment and throughout different touchpoints in the product and company operation",
+          "Responsible for building and maintaining Webflow for seamless marketing alignment and integrated brand identity into different touchpoints of the product and company",
         expandedImages: [
           {
             src: "/images/headroom/headroom1.jpg",
@@ -221,16 +221,16 @@ export const PROJECTS: Project[] = [
     id: "grand-theft-auto",
     label: "Grand Theft Auto",
     summary: [
-      "Defined interactions for the web-based application, ",
+      "Designed a web-based application, ",
       {
         text: "License Plate Creator",
         url: "https://www.rockstargames.com/gta-online/license-plates",
       },
-      ", that lets player personalize in-game plates out-of-console \n \n Part of the innovation Marketing team on a design team of 3. Defined the majority of application interface and interaction; built off GTA's main design system",
+      ", that lets player personalize in-game plates out-of-console \n \n Part of the innovation Marketing team on a design team of 3. Defined the majority of application interface and interactions; built off GTA's main design system",
     ],
     sidebar: {
       problem:
-        "The 2013 companion app, iFruit, which lets user enjoy in-game contents out of console, has 2.2 stars rating/400K reviews and buggy. How can we make it better?",
+        "The studio wanted to create 'companion apps' that let players enjoy in-game contents out of their console. The 2013 companion app, iFruit, which lets user enjoy in-game contents out of console, has 2.2 stars rating/400K reviews and very buggy.",
       why: "There are over 100 million players and over 740 vehicles in the game. UXR showed vehicles as a valuable touchpoint for personalization",
       proposal:
         "A companion experience on the browser where users can create their license plate",
@@ -241,60 +241,60 @@ export const PROJECTS: Project[] = [
       {
         title: "Story-driven UX",
         description:
-          "Crafted a narrative flow that supported over 15 million player from console to web",
+          "Crafted a narrative-based flow that reacehd over 15 million player from console to web",
         hoverImage: "/images/gta/gta.mp4",
         expandedText:
-          "Storytelling is a major aspect of GTA brand identity and component of user retention. \n Technical constraints: hosting large 3D assets can make Canvas rendering laggy which interrupts the storytelling flow \n Design solution: I found a solution through a two column system in which the canvas and panel slides (to tell the story) throughout the creation process and only have to render once in the beginning",
+          "Storytelling is a major aspect of GTA brand identity. \n • Technical constraints: hosting large 3D assets can make canvas rendering laggy which interrupts the flow \n • Design solution: I proposed a two column layout in which the canvas and panel only has to render once at the start and move across the browser per flow",
         expandedImages: [
           {
             src: "/images/gta/gta1.mp4",
             caption:
-              "I crafted the experience flow to feel seamless, paying particular attention to the transition motion design",
+              "I crafted the experience to feel seamless, paying particular attention to the transition motion",
           },
           {
             src: "/images/gta/gta2.jpg",
             caption:
-              "Drew on the branding of Los Santos (console in-game Auto Shop, the narrative on the web is player moving into an auto shop, creating their plate, and leaving the shop.",
+              "Infused the branding of Los Santos (console in-game Auto Shop) into the web space, thus drew on the narrative of moving into an auto shop, creating plates, and leaving the shop.",
           },
         ],
       },
       {
         title: "User-centric states",
         description:
-          "Mapped out states and design for a seamless player experience.",
+          "Mapped out different player states and design for a smooth experience",
         hoverImage: "/images/gta/gta-states.jpg",
         expandedText:
-          "I designed with the mindset of addressing each user states with care. A huge push was to give guest players the ability to demo the application first before prompting account creation (buld trust)",
+          "I designed with the value of building trust, which meant giving guest players the ability to demo the application and supporting return players in what to do next",
         expandedImages: [
           {
             src: "/images/gta/gta-states1.jpg",
             caption:
-              "Guest player upon trying, plate in the background update to show preview",
+              "Guest player demoed the application, plate in the background showed as preview",
           },
           {
             src: "/images/gta/gta-states2.jpg",
             caption:
-              "Account player first time: sample plate as zero state + CTA to create plate .",
+              "Account player's zero state showed a sample plate + CTA to create",
           },
           {
             src: "/images/gta/gta-states3.jpg",
             caption:
-              "Account player who has created a plate, call to action to pick up plate in-game",
+              "Account player who has created a plate sees call to action to pick up plate in-game",
           },
         ],
       },
       {
         title: "Copywriting as education",
         description:
-          "Championed for clarity and transparency in the overall experience through UI copy",
+          "Championed for clarity and education in the overall experience through UI copy",
         hoverImage: "/images/gta/gta-copy.mp4",
         expandedText:
-          "Infering directions and dependencies through copies \n While working on this project, I recognized the subtle distinction that UI and UX can guide, but copies can tell it straight \n I did all my mocks with realistic writing and insert as much instructional and contextual tones whenever possible \n We were working with limited API metadata, I want to be help players understand (remove tension) the invisible dependencies between web and console",
+          "I recognized in certain cases that yes, UI and UX can guide, but there are also times in which copywriting are critical. \n • I push for inserting as much instructional and contextual tones whenever possible \n • We were working with limited API metadata, I want to be help players understand (remove tension) the invisible dependencies between web and console",
         expandedImages: [
           {
             src: "/images/gta/gta-copy1.mp4",
             caption:
-              "Limitation: player has to go in game to claim their created plate before they can create another one",
+              "Limitation: player must go claim their created plate in console before they can create another one on web",
           },
         ],
       },
@@ -304,84 +304,87 @@ export const PROJECTS: Project[] = [
     id: "museum-of-arts-and-design",
     label: "Museum of Arts & Design",
     summary: [
-      "As the studio's first product designer, I co-created directly with the Director of Emerging Technology to craft a ",
+      "As the studio's first product designer, I co-created directly with the Design Director to craft a ",
       {
         text: "digital exhibition",
         url: "https://madmuseum.org/burke-prize-2021/",
       },
-      " for the Burke Prize 2021 biannual contemporary art prize, focused on accessibility and showcased artists' work in narrative form",
+      " for the Burke Prize 2021, with the aim to focused on accessibility and showcased artists' work in narrative form. \n \n Won Museum Association of NY's 2022 Awards of Merit for ",
+      {
+        text: "Excellence in Design",
+        url: "https://www.newyorkalmanack.com/2022/03/museum-association-of-ny-announces-2022-awards-of-merit/",
+      },
+      " and shortlisted for Best Digital Product Innovation for the Digiday Media Awards",
     ],
     sidebar: {
       problem:
         "The exhibition normally takes place onsite at New York, but due to Covid, had to be remote",
-      why: "The Burke Prize, an biannual award given to a U.S.-based artist age 45 or under, and works in the expansive fields of glass, fiber, clay, metal, or wood",
+      why: "The Burke Prize, a biannual contemporary art prize for a new generation of artists working in a world of expanded media with a foundation in glass, fiber, clay, metal, or wood.",
       proposal:
-        "A digital exhibition introducing award-nominated artists and their work",
-      outcome:
-        "Launched 2022 🚀, won Museum Association of NY's 2022 Awards of Merit for Excellence in Design and shortlisted for Best Digital Product Innovation for the Digiday Media Awards",
+        "A digital exhibition that introduced all 14 artists and their work",
+      outcome: "Launched 2022 🚀 and received accolades",
     },
     contributions: [
       {
         title: "Architectured artist information",
-        description: "Structured 14 unique artist data into a navigable system",
+        description:
+          "Structured information from 14 unique artist into a navigable system",
         hoverImage: "/images/mad/mad.jpg",
         expandedText:
-          "Coming into the project was the question: 'How do we represent what was normally live in digital form?'",
+          "A big question for the project was: 'How do we represent what was normally live in digital form?'",
         expandedImages: [
           {
             src: "/images/mad/mad1.jpg",
             caption:
-              "Taking stock of the 14 unique artists who have varied mediums and statements for who they are (sculpture is a very physical material)",
+              "Took stocks of all 14 artists who have unique mediums and statements for who they are (sculpture is a very physical material)",
           },
           {
             src: "/images/mad/mad2.jpg",
             caption:
-              "I composed a system for how we can organize and structure all the artifacts",
+              "I composed a system for organizing and structuring all the artifacts",
           },
           {
             src: "/images/mad/mad3.jpg",
             caption:
-              "Based on the system, I came up with media categories and designed unique components",
+              "Based on the system, I came up with 4 media categories and designed specific components for each",
           },
         ],
       },
       {
         title: "Elements of storytelling",
         description:
-          "Wove curatorial narrative through interactive moments to introudce the site to visitors",
+          "Wove curatorial narrative through interactive moments to new and return visitors to set context",
         hoverImage: "/images/mad/mad-story.jpg",
         expandedText:
-          "Two comments from the museum lead the storytelling direction I went on to define: \n MAD's curations of the exhibition evoke sense of participation over possession \n \n Craft is a journey, so the time and labor are as much part of the process as the finished pieces \n I also used my own handwriting for the organic fonts and elements",
+          "Two comments from the museum lead my direction: \n • MAD's curations of the exhibition evoke sense of participation over possession \n  • Craft is a journey, so the time and labor are as much part of the process as the finished pieces \n I used my own handwriting as part of the organic element and keeping the tone very visual and sculptural",
         expandedImages: [
           {
             src: "/images/mad/mad-story1.jpg",
             caption:
-              "My guidance of the interaction system were: sense of museum goer participation and the organic process that craft embodies",
+              "I want to evoke a sense of museum goer participation and the organic process that craft embodies",
           },
           {
             src: "/images/mad/mad-story2.mp4",
             caption:
-              "I storyboarded an interaction for the hero welcome that gave context to the exhibition and as visitors hovered over dots, there is a reveal of an artist's work.",
+              "I storyboarded an interaction for the hero welcome that gave context to the exhibition and participation as visitor hovered over dots, there is a reveal of an artist's work.",
           },
         ],
       },
       {
         title: "Website design",
-        description:
-          "Defined a narrative-first and hands-on interaction system and visual language",
+        description: "Defined an art-first and hands-on interaction system",
         hoverImage: "/images/mad/mad-web.jpg",
         expandedText:
-          "I worked directly with the Engineer and Design Director on implementation of the site with focus on accessibility, assets hosting, links, and components",
+          "I worked directly with the FE engineer and Design Director on implementation of the site with focus on accessibility, assets hosting, links, and components",
         expandedImages: [
           {
             src: "/images/mad/mad-web1.mp4",
             caption:
-              "Special animation and interaction to infused as much hands-on and organic elements as I can",
+              "Used special animation and motion to infused elements of the story we are telling",
           },
           {
             src: "/images/mad/mad-web2.jpg",
-            caption:
-              "I created a set of design and visual systems specific to each of the media types",
+            caption: "I created components specific to each of the media types",
           },
         ],
       },
@@ -391,7 +394,12 @@ export const PROJECTS: Project[] = [
     id: "socratic",
     label: "Socratic",
     summary: [
-      "Rebranding the AI-powered app, Socratic, to help students with their homework by providing educational resources like videos, definitions, Q&A, links and more \n \n 2019 launch covered by ",
+      "Rebranding the AI-powered app, ",
+      {
+        text: "Socratic",
+        url: "https://en.wikipedia.org/wiki/Socratic_(Google)",
+      },
+      ", to help students with their homework by providing educational resources like videos, definitions, Q&A, links and more \n \n Launched 2019: ",
       {
         text: "Google's blog",
         url: "https://blog.google/products-and-platforms/products/education/socratic-by-google/#:~:text=To%20help%20students%20working%20on,them%20work%20through%20their%20questions.",
@@ -401,7 +409,7 @@ export const PROJECTS: Project[] = [
         text: "TIME",
         url: "https://time.com/4650119/socratic-app-homework-iphone/",
       },
-      "",
+      ". App sunsetted 2024.",
     ],
     sidebar: {
       problem:
@@ -482,10 +490,11 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Custom math keyboard",
-        description: "Cross-team collaborated on Google’s first math keyboard",
+        description:
+          "I led the cross-team collaboration on Google’s first math keyboard",
         hoverImage: "/images/socratic/socratic-keyboard.jpg",
         expandedText:
-          "Socratic & Lens are both Google products that use cameras as a main source of input. Sometimes, the OCR technology would fail. This causes users to get stuck in their end-to-end journey or experience bad query results. \n Led design work creating a custom math keyboard so that users can manually address OCR errors. Collaborated cross-functionally for alignments between the two teams.",
+          "Socratic & Lens are both Google products that used cameras as main source of input. Sometimes, the OCR technology would fail. This caused students to get stuck in their end-to-end journey or experience bad query results. \n \n Led design work and cross-team alignments on a custom math keyboard so that students can manually address OCR errors.",
         expandedImages: [
           {
             src: "/images/socratic/socratic-keyboard1.mp4",

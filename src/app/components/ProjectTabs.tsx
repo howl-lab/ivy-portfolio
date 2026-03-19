@@ -75,7 +75,7 @@ function ContributionItem({
               color: "#555",
               lineHeight: 1.5,
               marginBottom: 16,
-              maxWidth: 520,
+              maxWidth: 560,
               whiteSpace: "pre-line",
             }}
           >
@@ -144,6 +144,7 @@ function ContributionItem({
                       fontFamily: COURIER,
                       fontSize: 12,
                       color: "#464646",
+                      maxWidth: isMobile ? "100%" : 600,
                     }}
                   >
                     {img?.caption ?? ""}
